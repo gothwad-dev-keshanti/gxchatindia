@@ -10,7 +10,7 @@ export default function MessagesListScreen() {
   ];
 
   return (
-    <div className="min-h-screen max-w-lg mx-auto bg-white">
+    <div className="min-h-screen w-full bg-white">
       {/* Header */}
       <div className="flex items-center justify-between px-4 h-14">
         <div className="flex items-center gap-4">

@@ -216,7 +216,7 @@ export default function EditProfileScreen() {
         </button>
       </div>
 
-      <div className="max-w-lg mx-auto px-6 py-4">
+      <div className="w-full px-6 py-4">
         {/* Error Message */}
         {error && (
           <div className="mb-4 p-3 bg-red-50 border border-red-100 rounded-xl flex items-start gap-3 text-red-600 animate-in fade-in slide-in-from-top-2">

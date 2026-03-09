@@ -55,7 +55,7 @@ export default function SettingsScreen() {
   ];
 
   return (
-    <div className="pb-24 max-w-lg mx-auto bg-zinc-50 min-h-screen">
+    <div className="pb-24 w-full bg-zinc-50 min-h-screen">
       {/* Header */}
       <div className="sticky top-0 z-50 bg-white border-b border-zinc-200 px-4 h-16 flex items-center gap-4">
         <button onClick={() => navigate(-1)} className="p-2 hover:bg-zinc-100 rounded-full transition-colors">

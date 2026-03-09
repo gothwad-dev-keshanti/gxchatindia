@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 export default function TopNav() {
   return (
-    <div className="fixed top-0 left-0 right-0 bg-white border-b border-zinc-100 px-4 h-16 flex justify-between items-center z-50">
+    <div className="sticky top-0 left-0 right-0 bg-white border-b border-zinc-100 px-4 h-16 flex justify-between items-center z-50">
       <div className="flex items-center gap-3">
         <div className="p-2 hover:bg-zinc-100 rounded-full transition-colors cursor-pointer">
           <Camera size={24} className="text-zinc-800" />

@@ -14,7 +14,7 @@ export default function BottomNav() {
   ];
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-zinc-100 px-2 py-2 flex justify-around items-center z-50 md:hidden shadow-[0_-1px_10px_rgba(0,0,0,0.05)]">
+    <div className="sticky bottom-0 left-0 right-0 bg-white border-t border-zinc-100 px-2 py-2 flex justify-around items-center z-50 shadow-[0_-1px_10px_rgba(0,0,0,0.05)]">
       {navItems.map((item) => {
         const Icon = item.icon;
         const isActive = location.pathname === item.path;

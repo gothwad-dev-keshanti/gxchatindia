@@ -84,9 +84,9 @@ export default function ChatScreen() {
   };
 
   return (
-    <div className="flex flex-col h-screen max-w-lg mx-auto bg-white">
+    <div className="flex flex-col h-screen w-full bg-white">
       {/* Header */}
-      <div className="flex items-center justify-between px-4 h-14 border-b border-zinc-100">
+      <div className="sticky top-0 left-0 right-0 z-50 flex items-center justify-between px-4 h-14 border-b border-zinc-100 bg-white">
         <div className="flex items-center gap-4">
           <Link to="/">
             <ArrowLeft size={24} />
@@ -148,7 +148,7 @@ export default function ChatScreen() {
       </div>
 
       {/* Input */}
-      <div className="p-4 border-t border-zinc-100">
+      <div className="sticky bottom-0 left-0 right-0 z-50 p-4 border-t border-zinc-100 bg-white">
         <form onSubmit={handleSendMessage} className="flex items-center gap-3">
           <div className="flex items-center gap-3 bg-zinc-100 rounded-full px-4 py-2 flex-1">
             <input 

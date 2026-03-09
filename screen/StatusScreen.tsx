@@ -6,7 +6,7 @@ import { auth } from '../firebase.ts';
 
 export default function StatusScreen() {
   return (
-    <div className="min-h-screen pb-24 pt-16 max-w-lg mx-auto bg-zinc-50">
+    <div className="min-h-screen pb-24 pt-16 w-full bg-zinc-50">
       <TopNav />
       
       {/* My Status */}
@@ -38,13 +38,15 @@ export default function StatusScreen() {
       </div>
 
       {/* Floating Actions */}
-      <div className="fixed bottom-28 right-6 flex flex-col gap-3">
-        <button className="p-3 bg-white text-zinc-600 rounded-full shadow-lg border border-zinc-100">
-          <Edit size={20} />
-        </button>
-        <button className="p-4 bg-blue-600 text-white rounded-full shadow-xl">
-          <Camera size={24} />
-        </button>
+      <div className="fixed bottom-28 left-1/2 -translate-x-1/2 w-full max-w-[450px] pointer-events-none z-40">
+        <div className="flex flex-col items-end gap-3 px-6">
+          <button className="p-3 bg-white text-zinc-600 rounded-full shadow-lg border border-zinc-100 pointer-events-auto">
+            <Edit size={20} />
+          </button>
+          <button className="p-4 bg-blue-600 text-white rounded-full shadow-xl pointer-events-auto">
+            <Camera size={24} />
+          </button>
+        </div>
       </div>
 
       <BottomNav />

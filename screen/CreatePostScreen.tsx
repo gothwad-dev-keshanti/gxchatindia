@@ -7,7 +7,7 @@ export default function CreatePostScreen() {
   const [caption, setCaption] = useState('');
 
   return (
-    <div className="min-h-screen bg-white max-w-lg mx-auto">
+    <div className="min-h-screen bg-white w-full">
       {/* Header */}
       <div className="flex items-center justify-between px-4 h-14 border-b border-zinc-100">
         <div className="flex items-center gap-4">

@@ -5,7 +5,7 @@ import { Phone, Video, Plus, Search } from 'lucide-react';
 
 export default function CallsScreen() {
   return (
-    <div className="min-h-screen pb-24 pt-16 max-w-lg mx-auto bg-zinc-50">
+    <div className="min-h-screen pb-24 pt-16 w-full bg-zinc-50">
       <TopNav />
       
       {/* Search Bar */}
@@ -33,10 +33,12 @@ export default function CallsScreen() {
       </div>
 
       {/* Floating Action */}
-      <div className="fixed bottom-28 right-6">
-        <button className="p-4 bg-blue-600 text-white rounded-full shadow-xl">
-          <Plus size={24} />
-        </button>
+      <div className="fixed bottom-28 left-1/2 -translate-x-1/2 w-full max-w-[450px] pointer-events-none z-40">
+        <div className="flex justify-end px-6">
+          <button className="p-4 bg-blue-600 text-white rounded-full shadow-xl pointer-events-auto">
+            <Plus size={24} />
+          </button>
+        </div>
       </div>
 
       <BottomNav />

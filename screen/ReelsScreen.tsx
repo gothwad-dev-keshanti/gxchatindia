@@ -16,7 +16,7 @@ export default function ReelsScreen() {
   ];
 
   return (
-    <div className="h-screen bg-black text-white relative overflow-hidden max-w-lg mx-auto">
+    <div className="h-screen bg-black text-white relative overflow-hidden w-full">
       {/* Top Bar */}
       <div className="absolute top-0 left-0 right-0 p-4 flex justify-between items-center z-20">
         <h2 className="text-xl font-bold">Reels</h2>

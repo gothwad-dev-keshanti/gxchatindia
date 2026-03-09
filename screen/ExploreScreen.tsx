@@ -59,7 +59,7 @@ export default function ExploreScreen() {
   );
 
   return (
-    <div className="min-h-screen pb-24 pt-16 max-w-lg mx-auto bg-zinc-50">
+    <div className="min-h-screen pb-24 pt-16 w-full bg-zinc-50">
       <TopNav />
       
       {/* Search Bar */}

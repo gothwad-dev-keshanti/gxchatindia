@@ -39,7 +39,7 @@ export default function HomeScreen() {
   );
 
   return (
-    <div className="min-h-screen pb-24 pt-16 max-w-lg mx-auto bg-white">
+    <div className="min-h-screen pb-24 pt-16 w-full bg-white">
       <TopNav />
       
       {/* Search Bar */}
@@ -110,10 +110,12 @@ export default function HomeScreen() {
       </div>
 
       {/* Floating Action Button */}
-      <div className="fixed bottom-28 right-6">
-        <button className="p-4 bg-blue-600 text-white rounded-full shadow-xl hover:bg-blue-700 transition-all active:scale-95">
-          <Plus size={24} />
-        </button>
+      <div className="fixed bottom-28 left-1/2 -translate-x-1/2 w-full max-w-[450px] pointer-events-none z-40">
+        <div className="flex justify-end px-6">
+          <button className="p-4 bg-blue-600 text-white rounded-full shadow-xl hover:bg-blue-700 transition-all active:scale-95 pointer-events-auto">
+            <Plus size={24} />
+          </button>
+        </div>
       </div>
 
       <BottomNav />

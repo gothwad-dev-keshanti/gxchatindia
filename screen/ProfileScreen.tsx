@@ -40,9 +40,9 @@ export default function ProfileScreen() {
   const DEFAULT_LOGO = "https://cdn-icons-png.flaticon.com/512/2590/2590488.png";
 
   return (
-    <div className="pb-24 max-w-lg mx-auto bg-white min-h-screen">
+    <div className="pb-24 w-full bg-white min-h-screen relative">
       {/* Professional Header */}
-      <div className="sticky top-0 z-50 bg-white border-b border-zinc-100 px-4 h-20 flex items-center justify-between">
+      <div className="absolute top-0 left-0 right-0 z-50 bg-white border-b border-zinc-100 px-4 h-20 flex items-center justify-between">
         <div className="flex flex-col">
           <h1 className="text-xl font-bold text-zinc-900">{userData?.username || 'profile'}</h1>
           <span className="text-[10px] text-zinc-400 font-medium">{auth.currentUser?.email}</span>

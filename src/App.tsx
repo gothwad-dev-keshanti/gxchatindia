@@ -57,20 +57,22 @@ export default function App() {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex flex-col items-center justify-center bg-white">
-        <div className="flex-1 flex flex-col items-center justify-center">
-          <img 
-            src="https://i.ibb.co/4RFKFmPR/file-00000000bf907207abbf3e9db6cfe8a1.png" 
-            alt="GxChat India Logo" 
-            className="w-24 h-24 mb-4 object-contain"
-            referrerPolicy="no-referrer"
-          />
-          <h1 className="text-3xl font-bold italic font-serif text-zinc-800">GxChat India</h1>
-        </div>
-        <div className="pb-12 flex flex-col items-center gap-1">
-          <span className="text-zinc-400 text-sm font-medium">from</span>
-          <span className="text-zinc-800 font-bold tracking-widest uppercase text-xs">Gothwad technologies</span>
-          <span className="text-zinc-400 text-[10px] uppercase tracking-tighter mt-1">made in india</span>
+      <div className="min-h-screen flex justify-center bg-zinc-100">
+        <div className="w-full max-w-[450px] min-h-screen bg-white shadow-2xl flex flex-col items-center justify-center">
+          <div className="flex-1 flex flex-col items-center justify-center">
+            <img 
+              src="https://i.ibb.co/4RFKFmPR/file-00000000bf907207abbf3e9db6cfe8a1.png" 
+              alt="GxChat India Logo" 
+              className="w-24 h-24 mb-4 object-contain"
+              referrerPolicy="no-referrer"
+            />
+            <h1 className="text-3xl font-bold italic font-serif text-zinc-800">GxChat India</h1>
+          </div>
+          <div className="pb-12 flex flex-col items-center gap-1">
+            <span className="text-zinc-400 text-sm font-medium">from</span>
+            <span className="text-zinc-800 font-bold tracking-widest uppercase text-xs">Gothwad technologies</span>
+            <span className="text-zinc-400 text-[10px] uppercase tracking-tighter mt-1">made in india</span>
+          </div>
         </div>
       </div>
     );
@@ -82,36 +84,38 @@ export default function App() {
 
   return (
     <Router>
-      <div className="min-h-screen bg-white">
-        <Routes>
-          <Route path="/" element={
-            !user ? <Navigate to="/login" /> : 
-            needsVerification ? <Navigate to="/verify-email" /> :
-            needsProfileCompletion ? <Navigate to="/complete-profile" /> :
-            <HomeScreen />
-          } />
-          
-          <Route path="/verify-email" element={
-            user && !user.emailVerified ? <VerifyEmailScreen /> : <Navigate to="/" />
-          } />
+      <div className="min-h-screen bg-zinc-100 flex justify-center overflow-hidden">
+        <div className="w-full max-w-[450px] h-screen bg-white shadow-2xl relative overflow-y-auto flex flex-col no-scrollbar">
+          <Routes>
+            <Route path="/" element={
+              !user ? <Navigate to="/login" /> : 
+              needsVerification ? <Navigate to="/verify-email" /> :
+              needsProfileCompletion ? <Navigate to="/complete-profile" /> :
+              <HomeScreen />
+            } />
+            
+            <Route path="/verify-email" element={
+              user && !user.emailVerified ? <VerifyEmailScreen /> : <Navigate to="/" />
+            } />
 
-          <Route path="/complete-profile" element={
-            user && !userData ? <CompleteProfileScreen /> : <Navigate to="/" />
-          } />
-          <Route path="/status" element={user ? <StatusScreen /> : <Navigate to="/login" />} />
-          <Route path="/explore" element={user ? <ExploreScreen /> : <Navigate to="/login" />} />
-          <Route path="/calls" element={user ? <CallsScreen /> : <Navigate to="/login" />} />
-          <Route path="/settings" element={user ? <SettingsScreen /> : <Navigate to="/login" />} />
-          <Route path="/reels" element={user ? <ReelsScreen /> : <Navigate to="/login" />} />
-          <Route path="/create" element={user ? <CreatePostScreen /> : <Navigate to="/login" />} />
-          <Route path="/profile" element={user ? <ProfileScreen /> : <Navigate to="/login" />} />
-          <Route path="/edit-profile" element={user ? <EditProfileScreen /> : <Navigate to="/login" />} />
-          <Route path="/login" element={!user ? <LoginScreen /> : <Navigate to="/" />} />
-          <Route path="/signup" element={!user ? <SignupScreen /> : <Navigate to="/" />} />
-          <Route path="/messages" element={user ? <MessagesListScreen /> : <Navigate to="/login" />} />
-          <Route path="/chat/:id" element={user ? <ChatScreen /> : <Navigate to="/login" />} />
-          <Route path="/admin" element={user ? <AdminDashboard /> : <Navigate to="/login" />} />
-        </Routes>
+            <Route path="/complete-profile" element={
+              user && !userData ? <CompleteProfileScreen /> : <Navigate to="/" />
+            } />
+            <Route path="/status" element={user ? <StatusScreen /> : <Navigate to="/login" />} />
+            <Route path="/explore" element={user ? <ExploreScreen /> : <Navigate to="/login" />} />
+            <Route path="/calls" element={user ? <CallsScreen /> : <Navigate to="/login" />} />
+            <Route path="/settings" element={user ? <SettingsScreen /> : <Navigate to="/login" />} />
+            <Route path="/reels" element={user ? <ReelsScreen /> : <Navigate to="/login" />} />
+            <Route path="/create" element={user ? <CreatePostScreen /> : <Navigate to="/login" />} />
+            <Route path="/profile" element={user ? <ProfileScreen /> : <Navigate to="/login" />} />
+            <Route path="/edit-profile" element={user ? <EditProfileScreen /> : <Navigate to="/login" />} />
+            <Route path="/login" element={!user ? <LoginScreen /> : <Navigate to="/" />} />
+            <Route path="/signup" element={!user ? <SignupScreen /> : <Navigate to="/" />} />
+            <Route path="/messages" element={user ? <MessagesListScreen /> : <Navigate to="/login" />} />
+            <Route path="/chat/:id" element={user ? <ChatScreen /> : <Navigate to="/login" />} />
+            <Route path="/admin" element={user ? <AdminDashboard /> : <Navigate to="/login" />} />
+          </Routes>
+        </div>
       </div>
     </Router>
   );
