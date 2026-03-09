@@ -5,9 +5,12 @@ import { signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
 import { collection, query, where, getDocs, doc, getDoc } from 'firebase/firestore';
 import { googleProvider } from '../firebase.ts';
 
+import { Eye, EyeOff } from 'lucide-react';
+
 export default function LoginScreen() {
   const [identifier, setIdentifier] = useState(''); // Can be email or username
   const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const [googleLoading, setGoogleLoading] = useState(false);
@@ -78,20 +81,29 @@ export default function LoginScreen() {
         <form onSubmit={handleLogin} className="space-y-4">
           <input 
             type="text" 
-            placeholder="Phone number, username, or email"
+            placeholder="Username or email"
             value={identifier}
             onChange={(e) => setIdentifier(e.target.value)}
             className="w-full px-4 py-3 bg-zinc-50 border border-zinc-200 rounded-md text-sm focus:outline-none focus:border-zinc-400"
             required
           />
-          <input 
-            type="password" 
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            className="w-full px-4 py-3 bg-zinc-50 border border-zinc-200 rounded-md text-sm focus:outline-none focus:border-zinc-400"
-            required
-          />
+          <div className="relative">
+            <input 
+              type={showPassword ? "text" : "password"} 
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className="w-full px-4 py-3 bg-zinc-50 border border-zinc-200 rounded-md text-sm focus:outline-none focus:border-zinc-400"
+              required
+            />
+            <button 
+              type="button"
+              onClick={() => setShowPassword(!showPassword)}
+              className="absolute right-3 top-1/2 -translate-y-1/2 text-zinc-400 hover:text-zinc-600"
+            >
+              {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+            </button>
+          </div>
           
           {error && <p className="text-red-500 text-xs text-center">{error}</p>}
 

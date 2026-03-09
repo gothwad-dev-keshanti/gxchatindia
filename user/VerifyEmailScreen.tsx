@@ -45,17 +45,24 @@ export default function VerifyEmailScreen() {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center px-8 bg-white">
       <div className="w-full max-w-sm text-center space-y-6">
-        <div className="flex justify-center">
-          <div className="w-20 h-20 bg-blue-50 rounded-full flex items-center justify-center text-blue-500">
-            <Mail size={40} />
-          </div>
+        <div className="flex flex-col items-center">
+          <img 
+            src="https://i.ibb.co/4RFKFmPR/file-00000000bf907207abbf3e9db6cfe8a1.png" 
+            alt="GxChat India Logo" 
+            className="w-20 h-20 mb-4 object-contain"
+            referrerPolicy="no-referrer"
+          />
+          <h1 className="text-3xl font-bold italic font-serif text-zinc-800">GxChat India</h1>
         </div>
         
         <div className="space-y-2">
-          <h1 className="text-2xl font-bold text-zinc-900">Verify your email</h1>
+          <h2 className="text-2xl font-bold text-zinc-900">Verify your email</h2>
           <p className="text-zinc-500 text-sm">
             We've sent a verification link to <span className="font-semibold text-zinc-900">{auth.currentUser?.email}</span>. 
             Please click the link in your email to continue.
+          </p>
+          <p className="text-xs text-amber-600 font-medium bg-amber-50 py-2 rounded-lg">
+            Don't forget to check your <span className="font-bold uppercase">Spam folder</span> if you don't see it!
           </p>
         </div>
 
@@ -79,10 +86,12 @@ export default function VerifyEmailScreen() {
             Sign out
           </button>
         </div>
+      </div>
 
-        <p className="text-xs text-zinc-400">
-          Can't find the email? Check your spam folder or try resending.
-        </p>
+      <div className="mt-auto pb-8 flex flex-col items-center gap-1">
+        <span className="text-zinc-400 text-sm font-medium">from</span>
+        <span className="text-zinc-800 font-bold tracking-widest uppercase text-xs">Gothwad technologies</span>
+        <span className="text-zinc-400 text-[10px] uppercase tracking-tighter mt-1">made in india</span>
       </div>
     </div>
   );

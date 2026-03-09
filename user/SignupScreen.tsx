@@ -5,11 +5,14 @@ import { createUserWithEmailAndPassword, updateProfile, signInWithPopup, sendEma
 import { doc, setDoc, collection, query, where, getDocs, getDoc } from 'firebase/firestore';
 import { googleProvider } from '../firebase.ts';
 
+import { User, AtSign, Lock, Eye, EyeOff } from 'lucide-react';
+
 export default function SignupScreen() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [fullName, setFullName] = useState('');
   const [username, setUsername] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const [googleLoading, setGoogleLoading] = useState(false);
@@ -117,14 +120,23 @@ export default function SignupScreen() {
             className="w-full px-4 py-3 bg-zinc-50 border border-zinc-200 rounded-md text-sm focus:outline-none focus:border-zinc-400"
             required
           />
-          <input 
-            type="password" 
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            className="w-full px-4 py-3 bg-zinc-50 border border-zinc-200 rounded-md text-sm focus:outline-none focus:border-zinc-400"
-            required
-          />
+          <div className="relative">
+            <input 
+              type={showPassword ? "text" : "password"} 
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className="w-full px-4 py-3 bg-zinc-50 border border-zinc-200 rounded-md text-sm focus:outline-none focus:border-zinc-400"
+              required
+            />
+            <button 
+              type="button"
+              onClick={() => setShowPassword(!showPassword)}
+              className="absolute right-3 top-1/2 -translate-y-1/2 text-zinc-400 hover:text-zinc-600"
+            >
+              {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+            </button>
+          </div>
           
           {error && <p className="text-red-500 text-xs text-center">{error}</p>}
 
